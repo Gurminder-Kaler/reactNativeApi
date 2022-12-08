@@ -282,15 +282,7 @@ const getAllPatientsOfAUserServiceFunc = async (req, res) => {
         status: 200,
         message: messages.SUCCESS.PATIENT.ALL,
         patients: docs.map((doc) => {
-          return {
-            _id: doc && doc._id,
-            firstName: doc && doc.firstName,
-            lastName: doc && doc.lastName,
-            role: doc && doc.role,
-            email: doc && doc.email,
-            createdAt: doc && doc.createdAt,
-            updatedAt: doc && doc.updatedAt,
-          };
+          return doc;
         }),
       });
     })
