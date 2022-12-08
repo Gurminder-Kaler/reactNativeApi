@@ -42,7 +42,8 @@ module.exports = Object.freeze({
       PASSWORD_CHANGED: "Password changed " + S + ", you may login now!",
     },
     FORGOT_PASSWORD: {
-      EMAIL_SENT: "OTP sent over the email " + S
+      EMAIL_SENT: "OTP sent over the email " + S,
+      VERIFICATION_DONE: "Verification successful, Please change the password!",
     },
   },
   FAILURE: {

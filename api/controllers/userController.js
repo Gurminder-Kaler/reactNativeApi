@@ -14,7 +14,7 @@ const {
 } = require("@services/userService");
 
 exports.getAllUsersOfType = async (req, res) => {
-  console.log("req,,,,,,,,,,,,,,,,,,,,", req.body);
+  // console.log("req,,,,,,,,,,,,,,,,,,,,", req.body);
   try {
     return await getAllUsersOfTypeServiceFunc(req, res);
   } catch (err) {
@@ -27,7 +27,7 @@ exports.getAllUsersOfType = async (req, res) => {
 };
 
 exports.getAllPatientsOfAUser = async (req, res) => {
-  console.log("req,,,,,,,,,,,,,,,,,,,,", req.body);
+  // console.log("req,,,,,,,,,,,,,,,,,,,,", req.body);
   try {
     return await getAllPatientsOfAUserServiceFunc(req, res);
   } catch (err) {
@@ -41,7 +41,7 @@ exports.getAllPatientsOfAUser = async (req, res) => {
 
 
 exports.getAPatientsInfo = async (req, res) => {
-  console.log("req,,,,,,,,,,,,,,,,,,,,", req.body);
+  // console.log("req,,,,,,,,,,,,,,,,,,,,", req.body);
   try {
     return await getAPatientsInfoServiceFunc(req, res);
   } catch (err) {

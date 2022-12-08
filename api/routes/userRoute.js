@@ -91,11 +91,20 @@ router.post("/verifyOTP", userController.verifyOTP);
 //----------------------------------------------------------------------
 
 /**
- * @public PUT users/updateProfile
+ * @public POST users/updateProfile
  * @params userId
  * @usage Update a user's information.
 */
-router.put("/updatePassword", userController.updatePassword);
+router.post("/updatePassword", userController.updatePassword);
+//----------------------------------------------------------------------
+
+/**
+ * @private GET users/patients/:patientId/tests/:testId
+ * @params patientId
+ * @params testId
+ * @usage Get a the test of a patient.
+*/
+router.get("/patients/:patientId/tests/:testId", testController.getATestOfAPatient);
 //----------------------------------------------------------------------
 
 /**

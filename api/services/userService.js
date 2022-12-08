@@ -9,7 +9,7 @@ const signUpValidator = require("@validations/authRequest/signUpValidator");
 
 const signUpServiceFunc = async (req, res) => {
   try {
-    // console.log("console//////", req.body);
+
     // Check Validation
     const { errors, isValid } = signUpValidator(req.body);
     if (!isValid) {
@@ -20,11 +20,11 @@ const signUpServiceFunc = async (req, res) => {
         message: errors,
       });
     }
-    // console.log("line 31");
+
     await User.find({
       email: req.body.email,
     }).then((u) => {
-      // console.log("3777");
+
       if (u.length > 0) {
         return res.json({
           status: 409,
@@ -60,7 +60,7 @@ const signUpServiceFunc = async (req, res) => {
               password: hash,
             });
             userVar.save().then((result) => {
-              // console.log("result111", result);
+
               if (result) {
                 return res.json({
                   status: 200,
@@ -81,7 +81,7 @@ const signUpServiceFunc = async (req, res) => {
         });
       }
     });
-    // console.log("77");
+
   } catch (err) {
     return res.json({
       status: 500,
@@ -96,7 +96,7 @@ const addPatientServiceFunc = async (req, res) => {
     await User.find({
       email: req.body.email,
     }).then((u) => {
-      // console.log("3777");
+
       if (u.length > 0) {
         return res.json({
           status: 409,
@@ -138,7 +138,7 @@ const addPatientServiceFunc = async (req, res) => {
               createdBy: req.body.createdBy
             });
             userVar.save().then((result) => {
-              // console.log("result111", result);
+
               if (result) {
                 return res.json({
                   status: 200,
@@ -159,7 +159,7 @@ const addPatientServiceFunc = async (req, res) => {
         });
       }
     });
-    // console.log("77");
+
   } catch (err) {
     return res.json({
       status: 500,
@@ -305,7 +305,6 @@ const getAllPatientsOfAUserServiceFunc = async (req, res) => {
 
 const getAPatientsInfoServiceFunc = async (req, res) => {
   console.log('user service getAPatientsInfo  ////////', req.params);
-  // const tests = await TestRecord.find({ userId: req.params.patientId }).lean();
 
   User.findOne({
     "_id": req.params.patientId
@@ -339,7 +338,7 @@ const getUserViaIdServiceFunc = async (req, res) => {
   //     message: errors
   //   })
   // }
-  // console.log(req.body);
+
   const filter = {
     _id: req.params.userId,
   };
@@ -371,7 +370,7 @@ const getUserViaIdServiceFunc = async (req, res) => {
 };
 
 const updateProfileServiceFunc = async (req, res) => {
-  console.log("email | body", req.body);
+  console.log("email | body updateprofile", req.body);
   User.findOne({
     _id: req.body.id,
   })
@@ -395,7 +394,7 @@ const updateProfileServiceFunc = async (req, res) => {
         { new: true }
       )
         .then((result) => {
-          // console.log("result", result);
+
           return res.json({
             success: true,
             status: 200,
@@ -530,7 +529,7 @@ const verifyOTPServiceFunc = async (req, res) => {
         email: req.body.email,
       })
         .then((result) => {
-          // console.log("result", result);
+
           if (result.otp == req.body.otp) {
             let mailObject = {
               from: '"Team" <info@team.com>', // sender address
@@ -573,6 +572,7 @@ const verifyOTPServiceFunc = async (req, res) => {
 };
 
 const updatePasswordServiceFunc = async (req, res) => {
+  console.log('updatePasswordServiceFunc : Email', req.body);
   User.findOne({
     email: req.body.email,
   })
@@ -615,7 +615,7 @@ const updatePasswordServiceFunc = async (req, res) => {
               return res.json({
                 success: true,
                 status: 200,
-                message: messages.SUCCESS.AUTH.PASSWORD_CHANGED,
+                message: messages.SUCCESS.AUTH.PASSWORD_CHANGED
               });
             })
             .catch((err) => {

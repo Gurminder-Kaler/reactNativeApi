@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
-
+//using local right now
 mongoose.connect(process.env.MONGO_URI_LOCAL, {
   useNewUrlParser: true,
   useUnifiedTopology: true

@@ -66,7 +66,6 @@ const saveDepartmentServiceFunc = async (req, res) => {
         new Department(obj)
             .save()
             .then((result) => {
-                console.log("result", result);
                 res.json({
                     success: true,
                     status: 200,
